@@ -1,0 +1,52 @@
+<div class="container-fluid">
+<nav class="navbar navbar-expand-sm shadow">
+  
+  <div class="col-sm-1"></div>
+      <div class="navbar-brand brand">AK Event Management</div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      @if(isLoggedIn){
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item">
+            <a class="btn nav-link active" routerLink="/home" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn nav-link active" routerLink="#">Past Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn nav-link active" routerLink="/events">Upcoming Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn nav-link active" routerLink="/tickets">Tickets</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn nav-link active" routerLink="/notifications">Notifications</a>
+          </li>
+        </ul>
+      </div>
+      }
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            @if(!isLoggedIn){
+            <li class="nav-item">
+              <a class="btn nav-link active" routerLink="/home" >Home</a>
+            </li>
+            <div class="col-sm-1"></div>
+            <li class="nav-item">
+              <a class="btn nav-link active" routerLink="/register" >Register</a>
+            </li>
+            <div class="col-sm-1"></div>
+            <li class="nav-item">
+               <!-- <button type="button" class="btn custom-btn nav-link" routerLink="/login">Login</button> -->
+              <a class="btn nav-link active" routerLink="/login">Login</a>
+            </li>}
+            @else{
+              <li class="nav-item">
+                <a class="btn nav-link active" (click)="logout()">logout</a>
+              </li>
+            }
+          </ul>
+          <div class="col-sm-1"></div>
+      </div>
