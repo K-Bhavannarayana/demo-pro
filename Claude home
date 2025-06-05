@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AK Event Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .hero {
+      background: url('https://images.unsplash.com/photo-1503424886309-4ee9f2e1cf0b') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 120px 0;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    }
+    .hero h1 {
+      font-size: 4rem;
+    }
+    .brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .service-card {
+      transition: transform 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand brand" routerLink="/">AK Events</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse justify-content-between" id="mainNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link" routerLink="/home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/events">Upcoming Events</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="#">Past Events</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/tickets">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/notifications">Notifications</a></li>
+        </ul>
+
+        <ul class="navbar-nav">
+          <!-- Angular conditional rendering -->
+          <ng-container *ngIf="!isLoggedIn; else loggedIn">
+            <li class="nav-item"><a class="nav-link" routerLink="/register">Register</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+          </ng-container>
+          <ng-template #loggedIn>
+            <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero text-center">
+    <div class="container">
+      <h1>Make Every Moment Unforgettable</h1>
+      <p class="lead">From weddings to corporate events, AK Events brings your vision to life.</p>
+      <a href="/events" class="btn btn-primary btn-lg mt-3">Explore Events</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="mb-4">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card service-card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Wedding Planning</h5>
+              <p class="card-text">Elegant and stress-free wedding event management tailored to your style.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Corporate Events</h5>
+              <p class="card-text">Professional management of seminars, conferences, and company celebrations.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Custom Celebrations</h5>
+              <p class="card-text">Birthday parties, anniversaries, and private gatherings with a personal touch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 AK Event Management. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
